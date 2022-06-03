@@ -2,6 +2,11 @@ import React from 'react';
 import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
 
 const NewsArticle = ({ ImageUrl, Title, SubTitle, onPress }) => {
+  const date = new Date(SubTitle);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const releaseDate = year + '年' + month + '月' + day + '日';
   return (
     <TouchableOpacity style={styles.itemContainer} onPress={onPress}>
       <View style={styles.leftContainer}>
@@ -11,7 +16,7 @@ const NewsArticle = ({ ImageUrl, Title, SubTitle, onPress }) => {
         <Text numberOfLines={3} style={styles.text}>
           {Title}
         </Text>
-        <Text style={styles.subText}>{SubTitle}</Text>
+        <Text style={styles.subText}>{releaseDate}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -39,6 +44,6 @@ const styles = StyleSheet.create({
   },
   subText: {
     fontSize: 12,
-    color: 'gray',
+    color: 'darkblue',
   },
 });
