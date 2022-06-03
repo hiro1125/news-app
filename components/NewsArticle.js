@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text } from 'react-native';
+import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
 
-const NewsArticle = ({ SubTitle, ImageUrl, Title }) => {
+const NewsArticle = ({ ImageUrl, Title, SubTitle, onPress }) => {
   return (
-    <View style={styles.itemContainer}>
+    <TouchableOpacity style={styles.itemContainer} onPress={onPress}>
       <View style={styles.leftContainer}>
         <Image style={{ width: 100, height: 100 }} source={{ uri: ImageUrl }} />
       </View>
@@ -13,10 +13,9 @@ const NewsArticle = ({ SubTitle, ImageUrl, Title }) => {
         </Text>
         <Text style={styles.subText}>{SubTitle}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
-
 export default NewsArticle;
 
 const styles = StyleSheet.create({
